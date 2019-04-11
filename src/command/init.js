@@ -6,19 +6,19 @@ import inquirer from 'inquirer';
 import ora from 'ora';
 import Git from '../tools/git';
 
-class Download {
+class Init {
   constructor() {
     this.git = new Git();
     this.commander = commander;
     this.inquirer = inquirer;
     this.getProList = ora('获取项目列表...');
     this.getTagList = ora('获取项目版本...');
-    this.downLoad = ora('正在加速为您下载代码...');
+    this.downLoad = ora('正在下载代码...');
   }
 
   run() {
     this.commander
-      .command('download')
+      .command('init')
       .description('从远程下载代码到本地...')
       .action(() => { this.download(); });
 
@@ -45,7 +45,7 @@ class Download {
 
     // 向用户咨询他想要开发的项目
     if (repos.length === 0) {
-      console.log('\n可以开发的项目数为 0, 肯定是配置错啦~~\n'.red);
+      console.log('\n可以开发的项目数为 0, 配置错误\n'.red);
       process.exit(-1);
     }
     const choices = repos.map(({ name }) => name);
@@ -98,5 +98,5 @@ class Download {
     }
   }
 }
-const D = new Download();
+const D = new Init();
 D.run();

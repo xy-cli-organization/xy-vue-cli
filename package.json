@@ -1,13 +1,13 @@
 {
   "name": "xy-vue-cli",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "learn": "./bin/learn.js"
+    "xy-vue-cli": "./bin/xy-vue-cli.js"
   },
   "keywords": [],
   "author": "",
