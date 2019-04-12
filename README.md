@@ -17,10 +17,20 @@
 [axios]: https://www.npmjs.com/package/axios
 [commitizen]: https://www.npmjs.com/package/commitizen
 
-## Run
-
+## Project initialization
+### Install vue-cli
 ```bash
 npm install -g @vue/cli
+```
+
+### Install xy-vue-cli
+```bash
+npm install -g xy-vue-cli
+```
+
+### Init project
+```bash
+xy-vue-cli init
 ```
 
 ## Project setup

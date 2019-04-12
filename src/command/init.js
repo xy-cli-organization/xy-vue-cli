@@ -11,15 +11,15 @@ class Init {
     this.git = new Git();
     this.commander = commander;
     this.inquirer = inquirer;
-    this.getProList = ora('获取项目列表...');
-    this.getTagList = ora('获取项目版本...');
-    this.downLoad = ora('正在下载代码...');
+    this.getProList = ora('get project list...');
+    this.getTagList = ora('get project version..');
+    this.downLoad = ora('downloading...');
   }
 
   run() {
     this.commander
       .command('init')
-      .description('从远程下载代码到本地...')
+      .description('downloading from remote...')
       .action(() => { this.download(); });
 
     this.commander.parse(process.argv);
@@ -36,16 +36,16 @@ class Init {
     try {
       getProListLoad = this.getProList.start();
       repos = await this.git.getProjectList();
-      getProListLoad.succeed('获取项目列表成功');
+      getProListLoad.succeed('get project list successful');
     } catch (error) {
       console.log(error);
-      getProListLoad.fail('获取项目列表失败...');
+      getProListLoad.fail('get project list failed...');
       process.exit(-1);
     }
 
     // 向用户咨询他想要开发的项目
     if (repos.length === 0) {
-      console.log('\n可以开发的项目数为 0, 配置错误\n'.red);
+      console.log('\nthe number that you can develop is 0, config wrong\n'.red);
       process.exit(-1);
     }
     const choices = repos.map(({ name }) => name);
@@ -53,7 +53,7 @@ class Init {
       {
         type: 'list',
         name: 'repo',
-        message: '请选择你想要开发的项目类型',
+        message: 'please choose the project type you want',
         choices,
       },
     ];
@@ -63,10 +63,10 @@ class Init {
     try {
       getTagListLoad = this.getTagList.start();
       [{ name: version }] = await this.git.getProjectVersions(repo);
-      getTagListLoad.succeed('获取项目版本成功');
+      getTagListLoad.succeed('get project versin successful');
     } catch (error) {
       console.log(error);
-      getTagListLoad.fail('获取项目版本失败...');
+      getTagListLoad.fail('get project versin failed...');
       process.exit(-1);
     }
 
@@ -75,11 +75,11 @@ class Init {
       {
         type: 'input',
         name: 'repoPath',
-        message: '请输入项目名称~',
+        message: 'please enter the project name',
         validate(v) {
           const done = this.async();
           if (!v.trim()) {
-            done('项目名称不能为空~');
+            done('the project name can not be empty');
           }
           done(null, true);
         },
@@ -91,10 +91,10 @@ class Init {
     try {
       downLoadLoad = this.downLoad.start();
       await this.git.downloadProject({ repo, version, repoPath });
-      downLoadLoad.succeed('下载代码成功');
+      downLoadLoad.succeed('download finished');
     } catch (error) {
       console.log(error);
-      downLoadLoad.fail('下载代码失败...');
+      downLoadLoad.fail('download failed...');
     }
   }
 }

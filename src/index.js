@@ -21,7 +21,7 @@ if (existsSync(resolve(__dirname, `command/${todo}.js`))) {
 } else {
   console.log(
     `
-      你输入了未知指令 ...
+      undefined command...
     `.red,
   );
   process.exit(-1);
