@@ -1,10 +1,10 @@
 // 命令管理
-import commander from 'commander';
+const commander = require('commander');
 // 命令行交互工具
-import inquirer from 'inquirer';
+const inquirer = require('inquirer');
 // 命令行中显示加载中
-import ora from 'ora';
-import Git from '../tools/git';
+const ora = require('ora');
+const Git = require('../tools/git');
 
 class Init {
   constructor() {
@@ -63,10 +63,10 @@ class Init {
     try {
       getTagListLoad = this.getTagList.start();
       [{ name: version }] = await this.git.getProjectVersions(repo);
-      getTagListLoad.succeed('get project versin successful');
+      getTagListLoad.succeed('get project version successful');
     } catch (error) {
       console.log(error);
-      getTagListLoad.fail('get project versin failed...');
+      getTagListLoad.fail('get project version failed...');
       process.exit(-1);
     }
 

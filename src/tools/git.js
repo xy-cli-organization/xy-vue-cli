@@ -1,6 +1,6 @@
-import request from './request';
-import { orgName } from '../../config';
-import download from 'download-git-repo';
+const download = require('download-git-repo');
+const request = require('./request');
+const { orgName } = require('../../config');
 
 class Git {
   constructor() {
@@ -30,4 +30,4 @@ class Git {
   }
 }
 
-export default Git;
+module.exports = Git;
