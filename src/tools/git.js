@@ -20,7 +20,7 @@ class Git {
   }
 
   downloadProject({ repo, version, repoPath }) {
-    console.log(`${this.orgName}/${repo}#${version}----------->${repoPath}`)
+    // console.log(`${this.orgName}/${repo}#${version}----------->${repoPath}`)
     return new Promise((resolve, reject) => {
       download(`${this.orgName}/${repo}#${version}`, repoPath, (err) => {
         if (err) reject(err);
