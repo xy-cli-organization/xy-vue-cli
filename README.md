@@ -1,37 +1,29 @@
-# xy-vue-cli
-<div align=center><img src=https://img.shields.io/badge/xy--vue--cli-1.0.1-orange.svg /></div>
+# xy-cli
 
-## Ecosystem
+## Project structure
 
-| Depend | Version | Description |
-|---------|--------|-------------|
-| [Vue-cli] | 3.5.5 | a full system for rapid Vue.js development |
-| [Vue-router] | 3.0.1 | Single-page application routing |
-| [Vuex] | 3.0.1 | a state management pattern + library for Vue.js |
-| [axios] | 0.18.0 | Promise based HTTP client for the browser and node.js |
-| [commitizen] | 3.0.7 | Get instant feedback on your commit message formatting and be prompted for required fields |
+    |-- dist                    # 打包后文件夹	        
+    |-- public                  # 静态文件夹         		                  
+    |   |-- favicon.ico				
+    |   |-- index.html            #入口页面
+    |-- src                     # 源码目录         
+    |   |--assets                 # 模块资源
+    |   |--components             # vue公共组件
+    |   |--views 						
+    |   |--App.vue                # 页面入口文件
+    |   |--main.js	              # 入口文件，加载公共组件
+    |   |--router.js              # 路由配置
+    |   |--demo.js	              # 状态管理
+    |-- .env.pre-release        # 预发布环境    
+    |-- .env.production         # 生产环境       
+    |-- .env.test               # 测试环境  
+    |-- vue.config.js           # 配置文件 
+    |-- .eslintrc.js            # ES-lint校验                   
+    |-- .gitignore              # git忽略上传的文件格式   
+    |-- babel.config.js         # babel语法编译                        
+    |-- package.json       	    # 项目基本信息 
+    |-- postcss.config.js       # CSS预处理器(此处默认启用autoprefixer)  
 
-[vue-cli]: https://cli.vuejs.org/guide/
-[vue-router]: https://github.com/vuejs/vue-router
-[vuex]: https://vuex.vuejs.org/
-[axios]: https://www.npmjs.com/package/axios
-[commitizen]: https://www.npmjs.com/package/commitizen
-
-## Project initialization
-### Install vue-cli
-```bash
-npm install -g @vue/cli
-```
-
-### Install xy-vue-cli
-```bash
-npm install -g xy-vue-cli
-```
-
-### Init project
-```bash
-xy-vue-cli init
-```
 
 ## Project setup
 ```
@@ -55,6 +47,3 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
-
--------
-Copyright (c) 2019-present, Ce Yu
